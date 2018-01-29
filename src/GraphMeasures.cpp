@@ -110,7 +110,8 @@ inline int Edge::getRunts(double *maxLength) {
 
 const char *Triangulation::scagnosticsLabels[9] = {"Outlying", "Skewed", "Clumpy", "Sparse", "Striated", "Convex", "Skinny", "Stringy", "Monotonic"};
 
-double *Triangulation::compute(BinnedData bdata, bool quick) {
+double *Triangulation::compute(BinnedData bdata, bool quick, int outlierRmv) {
+
   this->bdata = &bdata;
   this->px = bdata.getXData();
   this->py = bdata.getYData();
@@ -118,8 +119,8 @@ double *Triangulation::compute(BinnedData bdata, bool quick) {
   if (this->np < 2)
     return NULL;
 
-  findOutliers(bdata);
-  
+  findOutliers(bdata, outlierRmv);
+
   if (ALPHA)
     computeAlphaGraph();
 /*  if (GABRIEL)
@@ -133,6 +134,7 @@ double *Triangulation::compute(BinnedData bdata, bool quick) {
   if (SPHERE)
     computeSphereOfInfluenceGraph();*/
 
+
   if (quick)
     return NULL; 
 
@@ -144,10 +146,12 @@ double *Triangulation::compute(BinnedData bdata, bool quick) {
   
   double *measures = computeMeasures();
 
-  // for (int k=0; k < numScagnostics; ++k) 
-  //   printf("%3.5f ", measures[k]);
-  // printf("\n");
+   //for (int k=0; k < numScagnostics; ++k) 
+   //  printf("%3.5f ", measures[k]);
+   //printf("\n");
 
+   
+   
   return measures;
 }
 
@@ -164,6 +168,7 @@ inline double *Triangulation::computeMeasures() {
   results[STRIATED] = computeStriationMeasure();
   results[SPARSE] = computeSparsenessMeasure();
   results[MONOTONIC] = computeMonotonicityMeasure();
+
 
   return results;
 }
@@ -538,13 +543,13 @@ inline bool Triangulation::computeMSTOutliers(double omega) {
   return found;
 }
 
-inline void Triangulation::findOutliers(BinnedData bdata) {
+inline void Triangulation::findOutliers(BinnedData bdata, int outlierRmv) {
   this->counts = bdata.getCounts();
   isOutlier = new bool[np];
   for(int i = 0; i < np; ++i) isOutlier[i]=false;
 
   computeDT(px, py);
-
+  
 /*cout << "triangles: size " << triangles.size() <<endl;  
   list<Triangle *>::iterator it = triangles.begin();
   for (int k = 0; k < triangles.size() ; ++k, ++it) {
@@ -560,7 +565,7 @@ cout << "edges: size " << edges.size()<<endl;
 cout << endl;
 */
   computeMST();
-
+  
 /*cout << "MST edges: size " << mstEdges.size() <<endl;  
   list<Edge *>::iterator ie = mstEdges.begin();
   for (int k = 0; k < mstEdges.size() ; ++k, ++ie) {
@@ -578,6 +583,8 @@ cout << endl;
   bool foundNewOutliers = computeMSTOutliers(cutoff);
 
   double* sortedPeeledMSTLengths;
+ 
+if (outlierRmv){ 
   while (foundNewOutliers) {
     clear();
     computeDT(px, py);
@@ -585,7 +592,9 @@ cout << endl;
     sortedPeeledMSTLengths = getSortedMSTEdgeLengths();
     cutoff = computeCutoff(mstEdges.size(),sortedPeeledMSTLengths);
     foundNewOutliers = computeMSTOutliers(cutoff);
-  } 
+  }
+}
+
 
 }
 
@@ -643,6 +652,7 @@ inline void Triangulation::computeMST() {
 }
 
 inline void Triangulation::computeDT(int *px, int *py) {
+  
   totalPeeledCount = 0;
   srand(13579);  // set seed
   for (int i = 0; i < np; ++i) {
@@ -656,7 +666,8 @@ inline void Triangulation::computeDT(int *px, int *py) {
   }
   setNeighbors();
   markHull();
-}
+  
+  }
 
 inline void Triangulation::setNeighbors() {  
   list<Edge *>::iterator it = edges.begin();

@@ -295,6 +295,7 @@ class Triangulation {
     static const bool SPHERE = false;    // set Edge.onShape=false before using
 
     BinnedData *bdata;
+    int outlierRmv;
     list<Node *> nodes;        // nodes set
     list<Edge *> edges;        // edges set
     list<Triangle *> triangles;    // triangles set
@@ -315,7 +316,7 @@ class Triangulation {
     bool *isOutlier;
     static const double FUZZ = .999;
 
-    void findOutliers(BinnedData bdata);
+  void findOutliers(BinnedData bdata, int outlierRmv);
   void computeDT(int *px, int *py);
 
   void updateMSTEdges(Edge *addEdge, list<Edge *> *mstEdges);
@@ -392,7 +393,7 @@ class Triangulation {
         mstEdges.clear();
     }
 
-    double *compute(BinnedData bdata, bool quick); 
+    double *compute(BinnedData bdata, bool quick, int outlierRmv); 
   
 
   

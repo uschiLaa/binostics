@@ -34,6 +34,7 @@ int icompare (const void * a, const void * b)
 bool *Scagnostics::computeMSTOutliers(double **pts) {
 
   // Prim's algorithm on simple integer arrays
+  
 
   int nVar = Triangulation::numScagnostics;                  // 9 Scagnostic dimensions
   int nPts = numVars * (numVars - 1) / 2;               // p*(p-1)/2 points representing scatterplots
@@ -109,6 +110,7 @@ qsort(index, nPts-1, sizeof(int), icompare);
     }
   }
 
+  
   return outlier;
 }
 

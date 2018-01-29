@@ -1,2 +1,2 @@
 exportPattern("^[^\\.]")
-useDynLib(scagnostics)
+useDynLib(binostics)

@@ -3,7 +3,7 @@
 BinnedData Binner::binHex(int n, double *x, double *y, const int nBins) {
 
   // scaling constants
-
+  
   double con1 = .25;
   double con2 = 1. / 3.;
   double c1 = (double) (nBins - 1);
@@ -70,6 +70,8 @@ BinnedData Binner::binHex(int n, double *x, double *y, const int nBins) {
     ytbin[i] = ybin[i];
   }
   BinnedData bdata(nBin, xtbin, ytbin, tcount); 
+  
+  
   return bdata;
 }
 

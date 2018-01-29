@@ -4,7 +4,7 @@
 
 extern "C" {
   void
-  scagnostics(double* x, double* y, int* length, int* bins, double* results) {
+  scagnostics(double* x, double* y, int* length, int* bins, int *outlierRmv, double* results) {
     Binner b;
 
     BinnedData bdata = b.binHex(length[0], x, y, bins[0]);
@@ -12,7 +12,7 @@ extern "C" {
 
     // bdata.show();
 
-    double* r = dt.compute(bdata, false);
+    double* r = dt.compute(bdata, false, *outlierRmv);
     results[9] = bdata.n;
     memcpy(results, r, sizeof(double) * 9);
     for (int i = 0; i < bdata.n; i++) {

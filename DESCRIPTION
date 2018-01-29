@@ -1,4 +1,4 @@
-Package: scagnostics
+Package: binostics
 Type: Package
 Title: Compute scagnostics.
 Version: 0.1.1

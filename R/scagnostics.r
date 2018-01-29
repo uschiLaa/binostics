@@ -40,7 +40,7 @@
 scagnostics <- function(x, ...) UseMethod("scagnostics", x)
 
 
-scagnostics.default <- function(x, y, bins=50, ...) {
+scagnostics.default <- function(x, y, bins=50, outlierRmv=TRUE, ...) {
   stopifnot(length(x) == length(y))
 
   complete <- !is.na(x) & !is.na(y)  
@@ -56,6 +56,7 @@ scagnostics.default <- function(x, y, bins=50, ...) {
     y = as.double(y),
     length = as.integer(length(x)),
     bins = as.integer(bins),
+    outlierRmv = as.integer(outlierRmv),
     results = as.double(results)
   )$results
   
