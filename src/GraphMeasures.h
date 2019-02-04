@@ -314,7 +314,7 @@ class Triangulation {
   int np;
     int *px, *py, *counts;
     bool *isOutlier;
-    static const double FUZZ = .999;
+    static constexpr double FUZZ = .999;
 
   void findOutliers(BinnedData bdata, int outlierRmv);
   void computeDT(int *px, int *py);

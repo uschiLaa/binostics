@@ -39,7 +39,7 @@ public:
   int *x, *y;
   int *counts;
 
-  static const double RESOLUTION = 1000;
+  static constexpr double RESOLUTION = 1000;
   static const int BINS = 40;
 
   inline BinnedData (int n, double *x, double *y, int *counts)
