@@ -1,42 +1,42 @@
-# Calculcate scagnostics for a scatterplot
-# Scagnostics summarise potentially interesting patterns in 2d scatterplot
-# 
-# Current scagnostics are: 
-# 
-# \itemize{
-#   \item Outlying
-#   \item Skewed
-#   \item Clumpy
-#   \item Sparse
-#   \item Striated
-#   \item Convex
-#   \item Skinny
-#   \item Stringy
-#   \item Monotonic
-# }
-# 
-# These are described in more detail in: 
-# Graph-Theoretic Scagnostics, Leland Wilkinson, Anushka 
-# Anand, Robert Grossman. 
-# \url{http://www.rgrossman.com/dl/proc-094.pdf}
-# 
-# You can call the function with two 1d vectors to get a single vector
-# of scagnostics, or with a 2d structure (matrix or data frame) to get 
-# scagnostics for every combination of the variables.
-# 
-# @arguments object to calculate scagnostics on: a vector, a matrix or a data.frame
-# @arguments ...
-# @keyword hplot
-# @alias scagnostics.default
-# @alias scagnostics.matrix
-# @alias scagnostics.data.frame
-# @alias scagnostics_2d
-#X scagnostics(1:10, 1:10)
-#X scagnostics(rnorm(100), rnorm(100))
-#X scagnostics(mtcars)
-#X scagnostics(as.matrix(mtcars))
-#X 
-#X if (require(rggobi)) ggobi(scagnostics(mtcars))
+#' Calculcate scagnostics for a scatterplot
+#' Scagnostics summarise potentially interesting patterns in 2d scatterplot
+#' 
+#' Current scagnostics are: 
+#' 
+#' \itemize{
+#'   \item Outlying
+#'   \item Skewed
+#'   \item Clumpy
+#'   \item Sparse
+#'   \item Striated
+#'   \item Convex
+#'   \item Skinny
+#'   \item Stringy
+#'   \item Monotonic
+#' }
+#' 
+#' These are described in more detail in: 
+#' Graph-Theoretic Scagnostics, Leland Wilkinson, Anushka 
+#' Anand, Robert Grossman. 
+#' \url{http://www.rgrossman.com/dl/proc-094.pdf}
+#' 
+#' You can call the function with two 1d vectors to get a single vector
+#' of scagnostics, or with a 2d structure (matrix or data frame) to get 
+#' scagnostics for every combination of the variables.
+#' 
+#' @arguments object to calculate scagnostics on: a vector, a matrix or a data.frame
+#' @arguments ...
+#' @keyword hplot
+#' @alias scagnostics.default
+#' @alias scagnostics.matrix
+#' @alias scagnostics.data.frame
+#' @alias scagnostics_2d
+#' @examples
+#' scagnostics(1:10, 1:10)
+#' scagnostics(rnorm(100), rnorm(100))
+#' scagnostics(mtcars)
+#' scagnostics(as.matrix(mtcars))
+
 scagnostics <- function(x, ...) UseMethod("scagnostics", x)
 
 
@@ -92,23 +92,10 @@ scagnostics_2d <- function(x, ...) {
   structure(scag, class = c("scagdf"))
 }
 
-# Print scagnostics data structure
-# @keyword internal
+#' Print scagnostics data structure
+#' @keyword internal
 print.scagdf <- function(x, ...) {
   attr(x, "vars") <- NULL
   attr(x, "data") <- NULL
   print.default(x, ...)
-}
-
-# Calculate scagnostics while tour is running
-# @keyword internal
-scagnostics.tour <- function(x, ...) { 
-  if (!require("rggobi")) stop("rggobi required for the tour")
-  
-  g <- ggobi(x)
-  d <- displays(g)[[1]]
-
-  id <- gTimeoutAdd(1000, function(x) {print("."); TRUE}, data = NULL) 
-
-  gSourceRemove(id)
 }
