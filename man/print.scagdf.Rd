@@ -6,6 +6,11 @@
 \usage{
 \method{print}{scagdf}(x, ...)
 }
+\arguments{
+\item{x}{Object to be printed}
+
+\item{...}{Extra arguments}
+}
 \description{
 Print scagnostics data structure
 }

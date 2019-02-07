@@ -2,10 +2,31 @@
 % Please edit documentation in R/scagnostics.r
 \name{scagnostics}
 \alias{scagnostics}
+\alias{scagnostics.default}
+\alias{scagnostics.matrix}
+\alias{scagnostics.data.frame}
+\alias{scagnostics_2d}
 \title{Calculcate scagnostics for a scatterplot
 Scagnostics summarise potentially interesting patterns in 2d scatterplot}
 \usage{
 scagnostics(x, ...)
+
+\method{scagnostics}{default}(x, y, bins = 50, outlierRmv = TRUE, ...)
+
+\method{scagnostics}{matrix}(x, ...)
+
+\method{scagnostics}{data.frame}(x, ...)
+
+scagnostics_2d(x, ...)
+}
+\arguments{
+\item{x, y}{object to calculate scagnostics on: a vector, a matrix or a data.frame}
+
+\item{...}{Extra arguments}
+
+\item{bins}{number of bins, default=50}
+
+\item{outlierRmv}{logical for trimming data, default=TRUE}
 }
 \description{
 Current scagnostics are:

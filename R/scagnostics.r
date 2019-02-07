@@ -24,13 +24,13 @@
 #' of scagnostics, or with a 2d structure (matrix or data frame) to get 
 #' scagnostics for every combination of the variables.
 #' 
-#' @arguments object to calculate scagnostics on: a vector, a matrix or a data.frame
-#' @arguments ...
+#' @param x,y object to calculate scagnostics on: a vector, a matrix or a data.frame
+#' @param bins number of bins, default=50
+#' @param outlierRmv logical for trimming data, default=TRUE
+#' @param  ... Extra arguments
 #' @keyword hplot
-#' @alias scagnostics.default
-#' @alias scagnostics.matrix
-#' @alias scagnostics.data.frame
-#' @alias scagnostics_2d
+#' @useDynLib binostics
+#' @export
 #' @examples
 #' scagnostics(1:10, 1:10)
 #' scagnostics(rnorm(100), rnorm(100))
@@ -40,6 +40,8 @@
 scagnostics <- function(x, ...) UseMethod("scagnostics", x)
 
 
+#' @rdname scagnostics
+#' @export
 scagnostics.default <- function(x, y, bins=50, outlierRmv=TRUE, ...) {
   stopifnot(length(x) == length(y))
 
@@ -69,12 +71,20 @@ scagnostics.default <- function(x, y, bins=50, outlierRmv=TRUE, ...) {
   list(s=s, bins=bins)
 }
 
+#' @rdname scagnostics
+#' @export
 scagnostics.matrix <- function(x, ...) {
   scagnostics_2d(x, ...)
 }
+
+#' @rdname scagnostics
+#' @export
 scagnostics.data.frame <- function(x, ...) {
   scagnostics_2d(x, ...)
 }
+
+#' @rdname scagnostics
+#' @export
 scagnostics_2d <- function(x, ...) {
   vars <- expand.grid(x=1:ncol(x), y=1:ncol(x))
   vars <- vars[vars$x < vars$y, ]
@@ -93,6 +103,8 @@ scagnostics_2d <- function(x, ...) {
 }
 
 #' Print scagnostics data structure
+#' @param x Object to be printed
+#' @param  ... Extra arguments
 #' @keyword internal
 print.scagdf <- function(x, ...) {
   attr(x, "vars") <- NULL

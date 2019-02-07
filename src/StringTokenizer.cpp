@@ -11,7 +11,7 @@ StringTokenizer::StringTokenizer(const std::string& _str, const std::string& _de
   /*
      Remove sequential delimiter
   */
-   unsigned int curr_pos = 0;
+   int curr_pos = 0;
 
    while(true)
    {
@@ -52,14 +52,14 @@ StringTokenizer::StringTokenizer(const std::string& _str, const std::string& _de
 int StringTokenizer::countTokens()
 {
 
-   unsigned int prev_pos = 0;
+   int prev_pos = 0;
    int num_tokens        = 0;
 
    if (token_str.length() > 0)
    {
       num_tokens = 0;
 
-      unsigned int curr_pos = 0;
+      int curr_pos = 0;
       while(true)
       {
          if ((curr_pos = token_str.find(delim,curr_pos)) != std::string::npos)
@@ -88,7 +88,7 @@ std::string StringTokenizer::nextToken()
      return "";
 
    std::string  tmp_str = "";
-   unsigned int pos     = token_str.find(delim,0);
+   int pos     = token_str.find(delim,0);
 
    if (pos != std::string::npos)
    {
@@ -138,7 +138,7 @@ std::string StringTokenizer::nextToken(const std::string& delimiter)
      return "";
 
    std::string  tmp_str = "";
-   unsigned int pos     = token_str.find(delimiter,0);
+   int pos     = token_str.find(delimiter,0);
 
    if (pos != std::string::npos)
    {
@@ -158,7 +158,7 @@ std::string StringTokenizer::nextToken(const std::string& delimiter)
 std::string StringTokenizer::filterNextToken(const std::string& filterStr)
 {
    std::string  tmp_str    = nextToken();
-   unsigned int currentPos = 0;
+   int currentPos = 0;
 
    while((currentPos = tmp_str.find(filterStr,currentPos)) != std::string::npos)
    {
