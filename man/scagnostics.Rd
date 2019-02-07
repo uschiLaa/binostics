@@ -6,8 +6,7 @@
 \alias{scagnostics.matrix}
 \alias{scagnostics.data.frame}
 \alias{scagnostics_2d}
-\title{Calculcate scagnostics for a scatterplot
-Scagnostics summarise potentially interesting patterns in 2d scatterplot}
+\title{Calculcate scagnostics for a scatterplot}
 \usage{
 scagnostics(x, ...)
 
@@ -29,9 +28,11 @@ scagnostics_2d(x, ...)
 \item{outlierRmv}{logical for trimming data, default=TRUE}
 }
 \description{
-Current scagnostics are:
+Scagnostics summarise potentially interesting patterns in 2d scatterplot
 }
 \details{
+Current scagnostics are:
+
 \itemize{
   \item Outlying
   \item Skewed

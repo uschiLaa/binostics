@@ -1,4 +1,5 @@
 #' Calculcate scagnostics for a scatterplot
+#' 
 #' Scagnostics summarise potentially interesting patterns in 2d scatterplot
 #' 
 #' Current scagnostics are: 
@@ -84,7 +85,6 @@ scagnostics.data.frame <- function(x, ...) {
 }
 
 #' @rdname scagnostics
-#' @export
 scagnostics_2d <- function(x, ...) {
   vars <- expand.grid(x=1:ncol(x), y=1:ncol(x))
   vars <- vars[vars$x < vars$y, ]
