@@ -6,7 +6,7 @@
 \alias{scagnostics.matrix}
 \alias{scagnostics.data.frame}
 \alias{scagnostics_2d}
-\title{Calculcate scagnostics for a scatterplot}
+\title{Calculate scagnostics for a scatterplot}
 \usage{
 scagnostics(x, ...)
 

@@ -1,4 +1,4 @@
-#' Calculcate scagnostics for a scatterplot
+#' Calculate scagnostics for a scatterplot
 #' 
 #' Scagnostics summarise potentially interesting patterns in 2d scatterplot
 #' 
