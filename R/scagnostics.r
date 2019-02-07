@@ -19,7 +19,7 @@
 #' These are described in more detail in: 
 #' Graph-Theoretic Scagnostics, Leland Wilkinson, Anushka 
 #' Anand, Robert Grossman. 
-#' \url{http://www.rgrossman.com/dl/proc-094.pdf}
+#' \url{http://papers.rgrossman.com/proc-094.pdf}
 #' 
 #' You can call the function with two 1d vectors to get a single vector
 #' of scagnostics, or with a 2d structure (matrix or data frame) to get 

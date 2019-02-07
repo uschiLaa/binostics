@@ -1,10 +1,10 @@
 Package: binostics
 Type: Package
-Title: Compute scagnostics
+Title: Compute Scagnostics
 Version: 0.1.2
-Date: 2019-02-01
+Date: 2019-02-07
 Authors@R: c(
-    person("Ursula", "Laa", email = "ursula.laa@monash.edu", role = c("cre")),
+    person("Ursula", "Laa", email = "ursula.laa@monash.edu", role = "cre"),
     person("Heike", "Hofmann", email = "hofmann@iastate.edu", role = "aut"),
     person("Lee", "Wilkinson", email = "leland@spss.com", role = "aut"),
     person("Hadley", "Wickham", email = "h.wickham@gmail.com", role = "aut"),
@@ -15,4 +15,5 @@ Description: Calculates graph theoretic scagnostics.  Scagnostics describe vario
 LazyData: yes
 License: GPL
 RoxygenNote: 6.1.1
+SystemRequirements: C++11
 Encoding: UTF-8 
