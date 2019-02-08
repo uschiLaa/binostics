@@ -1,6 +1,6 @@
 #' Calculate scagnostics for a scatterplot
 #' 
-#' Scagnostics summarise potentially interesting patterns in 2d scatterplot
+#' Scagnostics summarize potentially interesting patterns in 2d scatterplot
 #' 
 #' Current scagnostics are: 
 #' 
