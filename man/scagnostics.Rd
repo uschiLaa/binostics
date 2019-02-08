@@ -28,7 +28,7 @@ scagnostics_2d(x, ...)
 \item{outlierRmv}{logical for trimming data, default=TRUE}
 }
 \description{
-Scagnostics summarise potentially interesting patterns in 2d scatterplot
+Scagnostics summarize potentially interesting patterns in 2d scatterplot
 }
 \details{
 Current scagnostics are:
