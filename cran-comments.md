@@ -8,7 +8,7 @@
 0 errors | 0 warnings | 2 notes
 
 * New submission
-* Using srand and rand for adding perturbations to prevent singularities, does not require sophisticated random number generator
+* Using srand (C) and rand (C) for adding perturbations to prevent singularities, more sophisticated random number generator is not required
 
 ## Reverse dependencies
 
