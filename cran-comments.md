@@ -5,10 +5,9 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 note
 
 * New submission
-* Using srand (C) and rand (C) for adding perturbations to prevent singularities, more sophisticated random number generator is not required
 
 ## Reverse dependencies
 
