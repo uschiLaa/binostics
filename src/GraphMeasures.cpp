@@ -654,10 +654,11 @@ inline void Triangulation::computeMST() {
 inline void Triangulation::computeDT(int *px, int *py) {
   
   totalPeeledCount = 0;
-  srand(13579);  // set seed
   for (int i = 0; i < np; ++i) {
-    int x = px[i] + (int) (8 * ((double)rand()/RAND_MAX - .5)); // perturb to prevent singularities
-    int y = py[i] + (int) (8 * ((double)rand()/RAND_MAX - .5));
+    int x = px[i] + (int) (8 * ((double)i/(np) - .5)); // perturb to prevent singularities
+    // we are using a systematic offset here to avoid random numbers generated in C, i.e.
+    // issues with reproducibility
+    int y = py[i];
     int count = counts[i];
     if (!isOutlier[i]) {
       insert(x, y, count, i);
