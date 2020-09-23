@@ -31,7 +31,7 @@ scagnostics_2d(x, ...)
 Scagnostics summarize potentially interesting patterns in 2d scatterplot
 }
 \details{
-Current scagnostics are:
+Current scagnostics are: 
 
 \itemize{
   \item Outlying

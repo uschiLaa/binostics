@@ -92,22 +92,11 @@ scagnostics_2d <- function(x, ...) {
   each <- lapply(seq_len(nrow(vars)), function(i) {
     scagnostics(x[,vars[i, 1]], x[,vars[i, 2]])$s
   })
-  scag <- do.call("rbind", each)
+  scag <- as.data.frame(do.call("rbind", each))
+  scag$var1 <- colnames(x)[vars$x]
+  scag$var2 <- colnames(x)[vars$y]
   
-  rownames(scag) <- apply(vars, 1, 
-    function(v) paste(colnames(x)[v], collapse=" vs "))
-
-  attr(scag, "vars") <- vars
-  attr(scag, "data") <- x
-  structure(scag, class = c("scagdf"))
+  scag
+  
 }
 
-#' Print scagnostics data structure
-#' @param x Object to be printed
-#' @param  ... Extra arguments
-#' @keyword internal
-print.scagdf <- function(x, ...) {
-  attr(x, "vars") <- NULL
-  attr(x, "data") <- NULL
-  print.default(x, ...)
-}
