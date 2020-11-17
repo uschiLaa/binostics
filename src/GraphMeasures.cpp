@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <algorithm>
+//#include <R.h>
 
 using namespace std;
 
@@ -535,6 +536,7 @@ inline bool Triangulation::computeMSTOutliers(double omega) {
     }
     if (deleteNode) {
       totalMSTOutlierLengths += sumlength;
+      //Rprintf("%d\n", n->pointID);
       isOutlier[n->pointID] = true;
       found = true;
     }
