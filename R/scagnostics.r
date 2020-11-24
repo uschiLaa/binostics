@@ -30,7 +30,7 @@
 #' @param outlierRmv logical for trimming data, default=TRUE
 #' @param  ... Extra arguments
 #' @keyword hplot
-#' @useDynLib binostics
+#' @useDynLib binostics, .registration = TRUE
 #' @export
 #' @examples
 #' scagnostics(1:10, 1:10)

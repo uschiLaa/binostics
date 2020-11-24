@@ -22,7 +22,6 @@
 #' 
 #' @param x,y 1d vectors
 #' @param name selected index from the list of available scagnostics
-#' @useDynLib binostics
 #' @export
 #' @examples
 #' scagnostic.index(rnorm(100), rnorm(100), name = "Convex")
