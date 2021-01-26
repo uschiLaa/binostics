@@ -46,14 +46,14 @@ class Scagnostics {
 
   public:
   double **data;
-  double **scagnostics;
+  double **scagnosticsC;
   string  *variableLabels;
   static const char* scagnosticsLabels[9];
 
   Scagnostics(int argc, char * const argv[]) {
     data = NULL;
     variableLabels = NULL;
-    scagnostics = NULL;
+    scagnosticsC = NULL;
     isScagnosticOutlier = NULL;
 
     MAX_ROWS = 100;

@@ -17,7 +17,7 @@ const char *Scagnostics::scagnosticsLabels[9] = {"Outlying", "Skewed", "Clumpy",
 
 
 void Scagnostics::computeScagnosticsOutliers() {
-  isScagnosticOutlier = computeMSTOutliers(scagnostics);
+  isScagnosticOutlier = computeMSTOutliers(scagnosticsC);
 }
 
 // for using qsort

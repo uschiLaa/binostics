@@ -54,7 +54,7 @@ scagnostics.default <- function(x, y, bins=50, outlierRmv=TRUE, ...) {
   y <- (y - min(y)) / diff(range(y))
   
   results <- rep(0, 9 + 3 * 1000)
-  r <- .C("scagnostics",
+  r <- .C("scagnosticsC",
     x = as.double(x),
     y = as.double(y),
     length = as.integer(length(x)),

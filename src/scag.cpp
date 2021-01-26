@@ -4,7 +4,7 @@
 
 extern "C" {
   void
-  scagnostics(double* x, double* y, int* length, int* bins, int *outlierRmv, double* results) {
+  scagnosticsC(double* x, double* y, int* length, int* bins, int *outlierRmv, double* results) {
     Binner b;
 
     BinnedData bdata = b.binHex(length[0], x, y, bins[0]);
