@@ -2,9 +2,9 @@ Package: binostics
 Type: Package
 Title: Compute Scagnostics
 Version: 0.1.3
-Date: 2020-11-24
+Date: 2021-01-27
 Authors@R: c(
-    person("Ursula", "Laa", email = "ursula.laa@monash.edu", role = c("cre", "aut")),
+    person("Ursula", "Laa", email = "ursula.laa@boku.ac.at", role = c("cre", "aut")),
     person("Heike", "Hofmann", email = "hofmann@iastate.edu", role = "aut"),
     person("Lee", "Wilkinson", email = "leland@spss.com", role = "aut"),
     person("Hadley", "Wickham", email = "h.wickham@gmail.com", role = "aut"),
