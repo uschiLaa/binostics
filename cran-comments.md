@@ -1,3 +1,9 @@
+## Notes
+
+This is a corrected version of a recently submitted package for which valgrind
+had identified issues because of the use of uninitialized values in the source
+code.
+
 ## Test environments
 
 * local OS X install, R 4.0.3
@@ -6,11 +12,6 @@
 ## R CMD check results
 
 0 errors | 0 warnings | 0 note
-
-## Notes
-
-On some systems the checks return a "new maintainer" note because I have updated my email address.
-
 
 ## Reverse dependencies
 

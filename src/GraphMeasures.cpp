@@ -88,8 +88,8 @@ inline bool Edge::isNewEdge(Node *n) {
 
 inline int Edge::getRunts(double *maxLength) {
   double cutoff = weight;
-  double maxLength1;
-  double maxLength2;
+  double maxLength1 = 0;
+  double maxLength2 = 0;
   int count1 = p1->getMSTChildren(cutoff, &maxLength1);
   int count2 = p2->getMSTChildren(cutoff, &maxLength2);
   if (count1 < count2) {
@@ -206,7 +206,7 @@ inline double Triangulation::computeStringyMeasure() {
 }
 
 inline double Triangulation::computeClusterMeasure() {
-  double maxLength;
+  double maxLength = 0;
   double maxValue = 0;
   list<Edge *>::iterator it = mstEdges.begin();
   for (int k=0; k < mstEdges.size(); ++k,++it) {
