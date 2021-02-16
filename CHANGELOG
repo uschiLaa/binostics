@@ -1,3 +1,8 @@
+binostics 0.1.4 --------------------
+
+* reference added to description
+* source code bug fix
+
 binostics 0.1.3 --------------------
 
 * new output format as standard data frame, superseding scagdf class structure
